@@ -9,9 +9,27 @@ import SwiftUI
 
 @main
 struct my_first_appApp: App {
+    private let shelfID: String = "shelf"
+    @State var cpath: String = "AirForce"
+    
+    @State private var isVolumeWindowOpen: Bool = false
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        WindowGroup (id: "player") {
+            PlayerView(shelfID: shelfID)
         }
+        
+        WindowGroup(id: shelfID) {
+            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen)
+        }
+        
+        WindowGroup(id: "volume") {
+            VolumeItemView(path: cpath)
+                .onAppear{isVolumeWindowOpen = true}
+                .onDisappear{isVolumeWindowOpen = false}
+        }
+        .windowStyle(.volumetric)
+        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
     }
 }
+
