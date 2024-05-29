@@ -7,9 +7,7 @@
 
 import Foundation
 
-class SampleItem {
-    static let lebron = [
-        ItemModel(text: "Shoes", carrierId: SampleCarrier.lebron[0].id, filePath3D: "PegasusTrail"),
-        ItemModel(text: "Shoes", carrierId: SampleCarrier.lebron[1].id, filePath3D: "AirForce")
-    ]
-}
+let sampleItem: [ItemModel] = [
+    ItemModel(text: "Shoes", filePath3D: "PegasusTrail"),
+    ItemModel(text: "Shoes", filePath3D: "AirForce")
+]

@@ -13,6 +13,7 @@ import RealityKitContent
 struct Model3DItemView: View {
     let path: String
     let rotate: Bool
+    let opacity: Double = 1
 
     var body: some View {
         VStack {
@@ -20,7 +21,8 @@ struct Model3DItemView: View {
                 model.resizable()
                     .scaledToFit()
                     .scaleEffect(0.3)
-                    .modifier(ConditionalRotate(rotate: rotate))
+                    .modifier(ConditionalRotateModifier(rotate: rotate))
+                    .opacity(opacity)
             } placeholder: {
                 ProgressView()
             }

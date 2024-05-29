@@ -12,8 +12,8 @@ struct SidebarSplitViewShelfView: View {
     @Binding var carrier: CarrierModel?
     
     var body: some View {
-        List(SampleCarrier.lebron, selection: $carrier) { it in
-             NavigationLink(it.text, value: it)
+        List(sampleCarrier, selection: $carrier) { it in
+            CustomNavigationLinkView(text: it.text, value: it)
          }
     }
 }

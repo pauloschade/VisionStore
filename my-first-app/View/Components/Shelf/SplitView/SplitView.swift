@@ -14,6 +14,7 @@ struct SplitViewShelfView: View {
     @State private var columnVisibility = NavigationSplitViewVisibility.automatic
     
     let isVolumeWindowOpen: Bool
+    @Binding var volumeItemPath: String
     
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
@@ -26,8 +27,24 @@ struct SplitViewShelfView: View {
             ContentSplitViewShelfView(carrier: $carrier, item: $item)
             .navigationTitle("Item")
         } detail: {
-            DetailSplitViewShelfView(filePath3D: item?.filePath3D, isVolumeWindowOpen: isVolumeWindowOpen)
+            DetailSplitViewShelfView(filePath3D: item?.filePath3D, isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
             .navigationTitle("Detail")
+        }
+    }
+}
+
+struct SplitViewShelfView_Previews: PreviewProvider {
+    static var previews: some View {
+        // Create a local state to bind to the isLongPressActive
+        PreviewWrapper()
+    }
+
+    struct PreviewWrapper: View {
+        let isVolumeWindowOpen: Bool = false
+        @State var volumeItemPath: String = "AirForce"
+
+        var body: some View {
+            SplitViewShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
         }
     }
 }

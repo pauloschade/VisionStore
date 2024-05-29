@@ -13,15 +13,14 @@ struct ToolbarItemGroupModel3DItemView: View {
     let description: String
     let isVolumeWindowOpen: Bool
     
+    var actionOnExpand: () -> Void
+    
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
     
     var body: some View {
         ExpandButtonView() {
-            if (isVolumeWindowOpen) {
-                dismissWindow(id: "volume")
-            }
-            openWindow(id: "volume")
+            actionOnExpand()
         }
         
         Image(systemName: "square.and.arrow.up.circle.fill")
@@ -49,5 +48,7 @@ struct ToolbarItemGroupModel3DItemView: View {
 }
 
 #Preview {
-    ToolbarItemGroupModel3DItemView(name: "name", description: "description", isVolumeWindowOpen: false)
+    ToolbarItemGroupModel3DItemView(name: "name", description: "description", isVolumeWindowOpen: false, actionOnExpand: {
+        print("Expand")
+    })
 }

@@ -13,10 +13,11 @@ struct ContentSplitViewShelfView: View {
     @Binding var item: ItemModel?
     
     var body: some View {
-        List(SampleItem.lebron, selection: $item) { (it) in
-            if(it.carrierId == carrier?.id) {
-                NavigationLink(it.text, value: it)
-            }
+        List(sampleItem, selection: $item) { (it) in
+//            if(it.carrierId == carrier?.id) {
+//                NavigationLink(it.text, value: it)
+//            }
+            NavigationLink(it.text, value: it)
          }
     }
 }

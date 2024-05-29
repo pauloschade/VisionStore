@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct my_first_appApp: App {
     private let shelfID: String = "shelf"
-    @State var cpath: String = "AirForce"
+    @State var volumeItemPath: String = "AirForce"
     
     @State private var isVolumeWindowOpen: Bool = false
     
@@ -20,11 +20,11 @@ struct my_first_appApp: App {
         }
         
         WindowGroup(id: shelfID) {
-            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen)
+            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
         }
         
         WindowGroup(id: "volume") {
-            VolumeItemView(path: cpath)
+            VolumeItemView(path: volumeItemPath)
                 .onAppear{isVolumeWindowOpen = true}
                 .onDisappear{isVolumeWindowOpen = false}
         }
@@ -32,4 +32,3 @@ struct my_first_appApp: App {
         .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
     }
 }
-

@@ -7,9 +7,7 @@
 
 import Foundation
 
-class SampleCarrier {
-    static let lebron = [
-        CarrierModel(text: "Lebron"),
-        CarrierModel(text: "Other"),
-    ]
-}
+let sampleCarrier: [CarrierModel] = [
+    CarrierModel(text: "Lebron"),
+    CarrierModel(text: "Other"),
+]
