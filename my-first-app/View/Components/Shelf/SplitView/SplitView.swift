@@ -9,27 +9,57 @@ import Foundation
 import SwiftUI
 
 struct SplitViewShelfView: View {
-    @State private var carrier: CarrierModel?
-    @State private var item: ItemModel?
-    @State private var columnVisibility = NavigationSplitViewVisibility.automatic
-    
     let isVolumeWindowOpen: Bool
     @Binding var volumeItemPath: String
+    let carriers: [CarrierModel]
+    let scene: SceneModel
+    
+    @StateObject var carrierSceneState: CarrierSceneStateManager = CarrierSceneStateManager()
+    @State private var selectedCarrier: CarrierModel? = nil
+    @State private var selectedItem: ItemModel? = nil
+    @State private var loadingItems: Bool = false
+    
     
     @Environment(\.openWindow) private var openWindow
     @Environment(\.dismissWindow) private var dismissWindow
     
     var body: some View {
         NavigationSplitView() {
-            SidebarSplitViewShelfView(carrier: $carrier)
+            SidebarSplitViewShelfView(selectedCarrier: $selectedCarrier, carriers: carriers)
             .navigationTitle("Carrier")
         } content: {
-            ContentSplitViewShelfView(carrier: $carrier, item: $item)
-            .navigationTitle("Item")
+            if(loadingItems) {
+                ProgressView()
+            } else {
+                ContentSplitViewShelfView(selectedItem: $selectedItem, items: carrierSceneState.items)
+                    .navigationTitle("Item")
+            }
         } detail: {
-            DetailSplitViewShelfView(filePath3D: item?.filePath3D, isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
-            .navigationTitle("Detail")
+            if let item = selectedItem {
+                DetailSplitViewShelfView(filePath3D: item.filePath3D, isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
+                .navigationTitle("Detail")
+            } else {
+                Text("Select an Item to view")
+            }
         }
+        .onChange(of: selectedCarrier) {
+            Task {
+                await fetchData()
+            }
+        }
+
+    }
+    
+    @MainActor
+    func fetchData() async {
+        loadingItems = true
+        if let carrier = selectedCarrier {
+            carrierSceneState.carrier = carrier
+            carrierSceneState.scene = scene
+            carrierSceneState.items = await AppController.shared.itemsController.getByCarrierAndScene(carrierId: carrier.id, sceneId: scene.id)
+        }
+        loadingItems = false
+        
     }
 }
 
@@ -44,7 +74,7 @@ struct SplitViewShelfView_Previews: PreviewProvider {
         @State var volumeItemPath: String = "AirForce"
 
         var body: some View {
-            SplitViewShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
+            SplitViewShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath, carriers: sampleCarrier, scene: sampleScene[0])
         }
     }
 }

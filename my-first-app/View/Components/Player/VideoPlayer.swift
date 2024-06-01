@@ -12,6 +12,10 @@ import AVKit
 struct VideoPlayerView: View {
     @State var player: AVPlayer? = nil
     @State var isPlaying: Bool = false
+    @Binding var eventId: String
+    @Binding var currentTimeSeconds: Int
+    
+    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
@@ -44,5 +48,19 @@ struct VideoPlayerView: View {
                 player = AVPlayer(url: url)
             }
         }
+        .onReceive(timer) { _ in
+            if(!isPlayerPlaying()) { return }
+            if let currentTime = player?.currentItem?.currentTime() {
+                currentTimeSeconds = Int(CMTimeGetSeconds(currentTime))
+            } else {
+                currentTimeSeconds = 0
+            }
+        }
+        .onDisappear {
+            timer.upstream.connect().cancel()
+        }
+    }
+    func isPlayerPlaying() -> Bool {
+        return player?.rate != 0 && player?.error == nil
     }
 }

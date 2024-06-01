@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DetailSplitViewShelfView: View {
     
-    let filePath3D: String?
+    let filePath3D: String
     
     let isVolumeWindowOpen: Bool
     

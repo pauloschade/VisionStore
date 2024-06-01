@@ -11,16 +11,17 @@ import SwiftUI
 struct my_first_appApp: App {
     private let shelfID: String = "shelf"
     @State var volumeItemPath: String = "AirForce"
-    
     @State private var isVolumeWindowOpen: Bool = false
+    
+    @StateObject private var eventState = EventStateManager()
     
     var body: some Scene {
         WindowGroup (id: "player") {
-            PlayerView(shelfID: shelfID)
+            PlayerView(shelfID: shelfID, eventState: eventState)
         }
         
         WindowGroup(id: shelfID) {
-            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath)
+            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath, eventState: eventState)
         }
         
         WindowGroup(id: "volume") {

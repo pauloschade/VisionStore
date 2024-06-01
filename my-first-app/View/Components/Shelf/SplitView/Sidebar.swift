@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 struct SidebarSplitViewShelfView: View {
-    @Binding var carrier: CarrierModel?
+    @Binding var selectedCarrier: CarrierModel?
+    let carriers: [CarrierModel]
     
     var body: some View {
-        List(sampleCarrier, selection: $carrier) { it in
-            CustomNavigationLinkView(text: it.text, value: it)
+        List(carriers, selection: $selectedCarrier) { carrier in
+            CustomNavigationLinkView(text: carrier.text, value: carrier)
          }
     }
 }

@@ -9,15 +9,15 @@ import Foundation
 import SwiftUI
 
 struct ContentSplitViewShelfView: View {
-    @Binding var carrier: CarrierModel?
-    @Binding var item: ItemModel?
+    @Binding var selectedItem: ItemModel?
+    var items: [ItemModel]
     
     var body: some View {
-        List(sampleItem, selection: $item) { (it) in
+        List(items, selection: $selectedItem) { (item) in
 //            if(it.carrierId == carrier?.id) {
 //                NavigationLink(it.text, value: it)
 //            }
-            NavigationLink(it.text, value: it)
+            NavigationLink(item.text, value: item)
          }
     }
 }

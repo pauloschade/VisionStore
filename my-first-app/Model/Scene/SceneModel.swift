@@ -10,4 +10,5 @@ struct SceneModel: Identifiable, Hashable {
     let id: String = UUID().uuidString
     let eventId: String
     let text: String
+    let startTimeSeconds: Int
 }
