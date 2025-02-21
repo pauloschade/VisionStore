@@ -18,9 +18,12 @@ struct Model3DItemView: View {
     var body: some View {
         VStack {
             Model3D(named: path) { (model) in
-                model.resizable()
+                model
+                    .resizable()
                     .scaledToFit()
-                    .scaleEffect(0.3)
+//                    .scaleEffect(0.3)
+                    .frame(minWidth: 0, idealWidth: 200, maxWidth: 200, minHeight: 0, idealHeight: 200, maxHeight: 200, alignment: .center)
+                    .aspectRatio(contentMode: .fit)
                     .modifier(ConditionalRotateModifier(rotate: rotate))
                     .opacity(opacity)
             } placeholder: {
@@ -31,5 +34,5 @@ struct Model3DItemView: View {
 }
 
 #Preview {
-    Model3DItemView(path: "AirForce", rotate: true)
+    Model3DItemView(path: "Porsche911", rotate: true)
 }

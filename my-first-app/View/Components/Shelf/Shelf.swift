@@ -17,7 +17,7 @@ struct ShelfView: View {
     
     
     var body: some View {
-        VStack{
+        VStack {
             if let scene = sceneState.scene {
                 SplitViewShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath, carriers: sceneState.carriers, scene: scene)
             }
@@ -25,8 +25,13 @@ struct ShelfView: View {
                 Text("Failed to load")
             }
         }
-        .task{
+        .task {
             await fetchData()
+        }
+        .onChange(of: eventState.currentScene?.id) {
+            Task {
+                await fetchData()  // Refetch data if scene ID changes
+            }
         }
     }
     

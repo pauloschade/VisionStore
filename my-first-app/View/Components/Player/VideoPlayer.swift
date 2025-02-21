@@ -12,7 +12,8 @@ import AVKit
 struct VideoPlayerView: View {
     @State var player: AVPlayer? = nil
     @State var isPlaying: Bool = false
-    @Binding var eventId: String
+    
+    let eventUrl: String
     @Binding var currentTimeSeconds: Int
     
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
@@ -44,7 +45,7 @@ struct VideoPlayerView: View {
             }
         }
         .onAppear {
-            if let url = Bundle.main.url(forResource: "Lebron_dunk", withExtension: "mp4") {
+            if let url = Bundle.main.url(forResource: eventUrl, withExtension: "mp4") {
                 player = AVPlayer(url: url)
             }
         }

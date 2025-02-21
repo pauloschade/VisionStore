@@ -30,6 +30,6 @@ struct my_first_appApp: App {
                 .onDisappear{isVolumeWindowOpen = false}
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
+        .defaultSize(width: 2, height: 2, depth: 2, in: .meters)
     }
 }

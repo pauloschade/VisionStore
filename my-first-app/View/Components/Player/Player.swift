@@ -14,10 +14,10 @@ struct PlayerView: View {
 
     var body: some View {
         VStack {
-            if let eventId = eventState.event?.id {
+            if (eventState.event?.id) != nil {
                 GeometryReader { geometry in
                     ZStack {
-                        VideoPlayerView(eventId: .constant(eventId), currentTimeSeconds: $currentTimeSeconds)
+                        VideoPlayerView(eventUrl: "tony_stark_car" , currentTimeSeconds: $currentTimeSeconds)
                             .frame(width: geometry.size.width, height: geometry.size.height)
                         
                         VStack {
@@ -49,7 +49,7 @@ struct PlayerView: View {
 
     @MainActor
     func fetchData() async {
-        self.eventState.event = await AppController.shared.eventsController.get()[0]
+        self.eventState.event = await AppController.shared.eventsController.get()[1]
     }
 }
 

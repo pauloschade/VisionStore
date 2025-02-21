@@ -9,5 +9,6 @@ import Foundation
 
 let sampleEvent: [EventModel] = [
     EventModel(title: "Bron Dunk"),
+    EventModel(title: "Tony Stark Car (Avengers)"),
     EventModel(title: "Mavs x Wolves"),
 ]

@@ -13,7 +13,7 @@ class EventStateManager: ObservableObject {
     @Published var currentScene: SceneModel? = nil
     
     static func initMock() -> EventStateManager {
-        var esm = EventStateManager()
+        let esm = EventStateManager()
         esm.event = sampleEvent[0]
         esm.currentScene = sampleScene[0]
         return esm
