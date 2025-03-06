@@ -8,8 +8,7 @@
 import Foundation
 
 struct ItemModel: Identifiable, Hashable {
-    let id = UUID()
+    let id: String = UUID().uuidString
     let text: String
-    let carrierId: UUID
     let filePath3D: String
 }

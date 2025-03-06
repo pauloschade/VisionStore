@@ -8,6 +8,6 @@
 import Foundation
 
 struct CarrierModel: Identifiable, Hashable {
-    let id = UUID()
+    let id: String = UUID().uuidString
     let text: String
 }

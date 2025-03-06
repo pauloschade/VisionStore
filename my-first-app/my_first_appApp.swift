@@ -10,26 +10,26 @@ import SwiftUI
 @main
 struct my_first_appApp: App {
     private let shelfID: String = "shelf"
-    @State var cpath: String = "AirForce"
-    
+    @State var volumeItemPath: String = "AirForce"
     @State private var isVolumeWindowOpen: Bool = false
+    
+    @StateObject private var eventState = EventStateManager()
     
     var body: some Scene {
         WindowGroup (id: "player") {
-            PlayerView(shelfID: shelfID)
+            PlayerView(shelfID: shelfID, eventState: eventState)
         }
         
         WindowGroup(id: shelfID) {
-            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen)
+            ShelfView(isVolumeWindowOpen: isVolumeWindowOpen, volumeItemPath: $volumeItemPath, eventState: eventState)
         }
         
         WindowGroup(id: "volume") {
-            VolumeItemView(path: cpath)
+            VolumeItemView(path: volumeItemPath)
                 .onAppear{isVolumeWindowOpen = true}
                 .onDisappear{isVolumeWindowOpen = false}
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: 0.6, height: 0.6, depth: 0.6, in: .meters)
+        .defaultSize(width: 2, height: 2, depth: 2, in: .meters)
     }
 }
-
