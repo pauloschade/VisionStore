@@ -1,7 +1,7 @@
 # VisionStore
 
 ## Overview
-Vision pro app that lets you see what you tv show/movie caracters are wearing and instantly buy it!
+Vision pro app that lets you see what your tv show/movie caracters are wearing and instantly buy it!
 
 <!-- ![Preview](img/preview.png) -->
 
