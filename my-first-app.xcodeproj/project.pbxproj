@@ -52,9 +52,9 @@
 		7C4EC5A92C06AA7700210791 /* ScenesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EC5A82C06AA7700210791 /* ScenesService.swift */; };
 		7C4EC5AB2C06ABDC00210791 /* CarriersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EC5AA2C06ABDC00210791 /* CarriersService.swift */; };
 		7C4EC5AD2C06ACA000210791 /* ItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4EC5AC2C06ACA000210791 /* ItemsService.swift */; };
+		7C7260AE2D7BE58E00AA386E /* PegasusTrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C7260AD2D7BE58E00AA386E /* PegasusTrail.usdz */; };
+		7C7260B02D7BE5B100AA386E /* AirForce 2.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C7260AF2D7BE5B100AA386E /* AirForce 2.usdz */; };
 		7C79C8F22BF825B200213A5E /* lebron_dunk.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7C79C8F12BF825B200213A5E /* lebron_dunk.mp4 */; };
-		7C7DE94A2BFBB8FF00FABAB1 /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DE9492BFBB8FF00FABAB1 /* AirForce.usdz */; };
-		7C7DE94C2BFBB90D00FABAB1 /* PegasusTrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DE94B2BFBB90D00FABAB1 /* PegasusTrail.usdz */; };
 		7C85E2762C0D1794004AF8F1 /* StripedShirtBlue.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C85E2752C0D1794004AF8F1 /* StripedShirtBlue.usdz */; };
 		7C85E2782C0D1905004AF8F1 /* AviatorSunglasses.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C85E2772C0D1905004AF8F1 /* AviatorSunglasses.usdz */; };
 		7C85E27A2C0D19F0004AF8F1 /* LeatherJacketMale.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 7C85E2792C0D19F0004AF8F1 /* LeatherJacketMale.usdz */; };
@@ -141,9 +141,9 @@
 		7C4EC5A82C06AA7700210791 /* ScenesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenesService.swift; sourceTree = "<group>"; };
 		7C4EC5AA2C06ABDC00210791 /* CarriersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarriersService.swift; sourceTree = "<group>"; };
 		7C4EC5AC2C06ACA000210791 /* ItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsService.swift; sourceTree = "<group>"; };
+		7C7260AD2D7BE58E00AA386E /* PegasusTrail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = PegasusTrail.usdz; sourceTree = "<group>"; };
+		7C7260AF2D7BE5B100AA386E /* AirForce 2.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AirForce 2.usdz"; sourceTree = "<group>"; };
 		7C79C8F12BF825B200213A5E /* lebron_dunk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lebron_dunk.mp4; sourceTree = "<group>"; };
-		7C7DE9492BFBB8FF00FABAB1 /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = AirForce.usdz; path = "../../../../reality/my-first-app/Sources/my-first-app/my-first-app.rkassets/scenes/AirForce.usdz"; sourceTree = "<group>"; };
-		7C7DE94B2BFBB90D00FABAB1 /* PegasusTrail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = PegasusTrail.usdz; path = ../../../../../../Downloads/PegasusTrail.usdz; sourceTree = "<group>"; };
 		7C85E2732C0CCE73004AF8F1 /* tony_stark_car.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tony_stark_car.mp4; sourceTree = "<group>"; };
 		7C85E2742C0CCE7A004AF8F1 /* black_panther_car_chase.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = black_panther_car_chase.mp4; sourceTree = "<group>"; };
 		7C85E2752C0D1794004AF8F1 /* StripedShirtBlue.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = StripedShirtBlue.usdz; sourceTree = "<group>"; };
@@ -577,8 +577,8 @@
 				7C85E27D2C0D1BFC004AF8F1 /* Porsche911.usdz */,
 				7C85E27B2C0D1B2F004AF8F1 /* BlackTshirt.usdz */,
 				7C85E2752C0D1794004AF8F1 /* StripedShirtBlue.usdz */,
-				7C7DE94B2BFBB90D00FABAB1 /* PegasusTrail.usdz */,
-				7C7DE9492BFBB8FF00FABAB1 /* AirForce.usdz */,
+				7C7260AD2D7BE58E00AA386E /* PegasusTrail.usdz */,
+				7C7260AF2D7BE5B100AA386E /* AirForce 2.usdz */,
 				7C85E2772C0D1905004AF8F1 /* AviatorSunglasses.usdz */,
 				7C85E2792C0D19F0004AF8F1 /* LeatherJacketMale.usdz */,
 				7C85E2812C0D2BB3004AF8F1 /* LeatherJacketFemale.usdz */,
@@ -673,19 +673,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7260B02D7BE5B100AA386E /* AirForce 2.usdz in Resources */,
 				7C28A9F82C0E524C0006F593 /* tony_stark_car.mp4 in Resources */,
 				7C85E27C2C0D1B2F004AF8F1 /* BlackTshirt.usdz in Resources */,
 				7C85E2822C0D2BB3004AF8F1 /* LeatherJacketFemale.usdz in Resources */,
 				7C28A9F52C0E135B0006F593 /* NikeTechFleeceFullZipHoodie.usdz in Resources */,
 				7C85E2762C0D1794004AF8F1 /* StripedShirtBlue.usdz in Resources */,
 				7C85E27E2C0D1BFC004AF8F1 /* Porsche911.usdz in Resources */,
-				7C7DE94A2BFBB8FF00FABAB1 /* AirForce.usdz in Resources */,
 				7C85E2842C0D2C3F004AF8F1 /* LeatherJacketBikerBrown.usdz in Resources */,
 				7CEE0D112BF3E60600546D89 /* Preview Assets.xcassets in Resources */,
 				7C28A9F72C0E19FD0006F593 /* CaptainAmericaShield.usdz in Resources */,
-				7C7DE94C2BFBB90D00FABAB1 /* PegasusTrail.usdz in Resources */,
 				7CEE0D0E2BF3E60600546D89 /* Assets.xcassets in Resources */,
 				7C85E27A2C0D19F0004AF8F1 /* LeatherJacketMale.usdz in Resources */,
+				7C7260AE2D7BE58E00AA386E /* PegasusTrail.usdz in Resources */,
 				7C28A9F32C0E13470006F593 /* LeatherBag.usdz in Resources */,
 				7C85E2802C0D2A29004AF8F1 /* BlackPants.usdz in Resources */,
 				7C79C8F22BF825B200213A5E /* lebron_dunk.mp4 in Resources */,
